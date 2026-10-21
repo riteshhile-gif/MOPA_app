@@ -11,17 +11,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Personal AI Assistant 🤖"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#C084FC"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:id="@+id/inputPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Aapla prashn ithe tyar kara..."
+        android:textColorHint="#64748B"
+        android:textColor="#F8FAFC"
+        android:background="#1E293B"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ask AI"
+        android:backgroundTint="#9333EA"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="24dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/outputText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="App is ready and running!"
+        android:text="Response ithe disel..."
         android:textSize="14sp"
         android:textColor="#94A3B8"
-        android:textAlignment="center" />
+        android:gravity="center"/>
 
 </LinearLayout>
