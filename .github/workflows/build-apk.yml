@@ -11,26 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
-      - name: Setup Gradle Wrapper
-        uses: gradle/actions/setup-gradle@v3
+    # 1. जर gradlew फाईल android फोल्डरच्या आत असेल, तर इथे working-directory वापरा:
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      working-directory: ./android   # <--- ही ओळ अत्यंत महत्त्वाची आहे
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build Debug APK with Gradle Wrapper
-        run: ./gradlew assembleDebug
-
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+    - name: Build Debug APK with Gradle Wrapper
+      run: ./gradlew assembleDebug
+      working-directory: ./android   # <--- ही ओळ सुद्धा इथे वापरा
