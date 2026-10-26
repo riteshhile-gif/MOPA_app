@@ -20,12 +20,10 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    # इथे आपण 'android/' फोल्डरचा अचूक पाथ दिला आहे
+    # 1. थेट मुख्य फोल्डरमधील gradlew ला परवानगी देईल
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-      working-directory: ./android
 
-    # इथे आपण working-directory मध्ये 'android' फोल्डर सेट केला आहे
+    # 2. कोणत्याही एक्स्ट्रा फोल्डरशिवाय थेट बिल्ड करेल
     - name: Build Debug APK with Gradle Wrapper
       run: ./gradlew assembleDebug
-      working-directory: ./android
