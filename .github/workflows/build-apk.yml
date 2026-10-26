@@ -20,11 +20,12 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    # 1. इथून पुढे महत्त्वाचा बदल आहे (Gradle wrapper ला ऍक्सेस देण्यासाठी):
+    # इथे आपण 'android/' फोल्डरचा अचूक पाथ दिला आहे
     - name: Grant execute permission for gradlew
-      run: chmod +x android/gradlew
+      run: chmod +x gradlew
+      working-directory: ./android
 
-    # 2. बिल्ड कमांड रन करताना android फोल्डरमधून रन होईल:
+    # इथे आपण working-directory मध्ये 'android' फोल्डर सेट केला आहे
     - name: Build Debug APK with Gradle Wrapper
       run: ./gradlew assembleDebug
       working-directory: ./android
